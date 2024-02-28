@@ -1,15 +1,12 @@
 from aiogram import Bot
-import asyncio
 from typing import Any, Dict
 from aiogram.types import CallbackQuery
 from TG_API.core.utils.callbackdata import MacInfo
-import aiogram.utils.markdown as md
-from aiogram import Bot, Dispatcher, types, html
+from aiogram import Bot, types, html
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
-from aiogram.types import (ContentType, KeyboardButton, Message, ReplyKeyboardMarkup, ReplyKeyboardRemove)
-from aiogram.enums import ParseMode
+from aiogram.types import Message, ReplyKeyboardRemove
 
 
 # States
@@ -45,18 +42,6 @@ async def show_summary(message: Message, data: Dict[str, Any]) -> None:
     days = data.get("days")
     text = f"Подведем итог. Город: {html.quote(city)}, Период: {html.quote(days)}"
     await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
-
-
-#
-#     for question in questions:
-#         await asyncio.sleep(1)
-#         await call.message.answer(question)
-#         answers.append(call.message.text)
-#
-#     await call.answer()
-#     await call.message.answer("Подведем итог: ")
-#     result = "\n".join([f"{i + 1}. {answer}" for i, answer in enumerate(answers)])
-#     await call.message.answer(result)
 
 
 async def select_macbook(call: CallbackQuery, bot: Bot, callback_data: MacInfo):

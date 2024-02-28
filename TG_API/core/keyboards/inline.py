@@ -24,14 +24,14 @@ select_macbook = InlineKeyboardMarkup(inline_keyboard=[
 def get_inline_keyboard():
     keyboard_builder = InlineKeyboardBuilder()
     keyboard_builder.button(text='Узнать погоду?', callback_data='weather')
-    keyboard_builder.button(text='macbook air 13" m1 2020',
-                            callback_data=MacInfo(model='air', size=13, chip='m1', year=2020))
-    keyboard_builder.button(text='macbook pro 14" m1 Pro 2021',
-                            callback_data=MacInfo(model='pro', size=14, chip='m1', year=2021))
-    keyboard_builder.button(text='macbook Pro 16" 2019',
-                            callback_data=MacInfo(model='pro', size=16, chip='i7', year=2019))
+    keyboard_builder.button(text='Курс валют',
+                            callback_data='currency')
+    # keyboard_builder.button(text='macbook pro 14" m1 Pro 2021',
+    #                         callback_data=MacInfo(model='pro', size=14, chip='m1', year=2021))
+    # keyboard_builder.button(text='macbook Pro 16" 2019',
+    #                         callback_data=MacInfo(model='pro', size=16, chip='i7', year=2019))
     keyboard_builder.button(text='link', url='https://github.com/')
     keyboard_builder.button(text='Profile', url='tg://user?id=1961648829')
     
-    keyboard_builder.adjust(1, 1, 1, 1, 2)
+    keyboard_builder.adjust(1, 1, 2)
     return keyboard_builder.as_markup()

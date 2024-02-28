@@ -38,8 +38,10 @@ def _get_definitions(method: str, url: str, headers: Dict, definition: str, time
 
 class SiteApiInterface:
     @staticmethod
-    def get_forecast_weather():
-        return _get_forecast_weather
+    def get_forecast_weather(method: str, url: str, headers: Dict, params: Dict, timeout: int, func=_make_response):
+        url = "{0}/forecast.json".format(url)
+        response = func(method, url, headers=headers, params=params, timeout=timeout)
+        return response
     
     @staticmethod
     def get_word():
@@ -48,6 +50,7 @@ class SiteApiInterface:
     @staticmethod
     def get_definitions():
         return _get_definitions
+
 
 if __name__ == "__main__":
     _make_response()

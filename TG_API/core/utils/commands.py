@@ -19,10 +19,6 @@ async def set_commands(bot: Bot):
         BotCommand(
             command='inline',
             description='Показать подсказки'
-        ),
-        BotCommand(
-            command='weather',
-            description='Опции погоды'
         )
     ]
     await bot.set_my_commands(commands, BotCommandScopeDefault())
